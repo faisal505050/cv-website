@@ -1,0 +1,12 @@
+body {
+    direction: rtl;
+    font-family: 'Cairo', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+h1, h2, h3 {
+    color: #007bff;
+}
+.container {
+    margin-top: 30px;
+}
