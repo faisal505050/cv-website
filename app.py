@@ -1,20 +1,15 @@
-from flask import Flask, render_template, request
-import os
-
+from flask import Flask, render_template, send_file
 app = Flask(__name__)
 
-@app.route('/')
+@app.route("/")
 def index():
-    return render_template('index.html')
+    return render_template("index.html")
 
-@app.route('/contact', methods=['POST'])
-def contact():
-    name = request.form.get('name')
-    email = request.form.get('email')
-    message = request.form.get('message')
-    print(f"رسالة جديدة من {name} - {email}: {message}")
-    return render_template('index.html', success=True)
+@app.route("/download-cv")
+def download_cv():
+    return send_file("static/Faisal_Saad_Alharbi_CV.pdf", as_attachment=True)
 
 if __name__ == "__main__":
+    import os
     port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(host="0.0.0.0", port=port)
